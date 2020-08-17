@@ -21,7 +21,7 @@ xterm*vt100.translations: #override \
 #define base0A #ffcb6b
 #define base0B #c3e88d
 #define base0C #89ddff
-#define base0D #82aaff
+#define base0D #0285d2
 #define base0E #c792ea
 #define base0F #ff5370
 
@@ -59,3 +59,4 @@ xterm*vt100.translations: #override \
 *color19:      base02
 *color20:      base04
 *color21:      base06
+*color22:      base05

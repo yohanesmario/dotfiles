@@ -1,0 +1,35 @@
+#!/bin/bash
+
+SCHEMA="org.gnome.settings-daemon.plugins.media-keys"
+KEY="custom-keybindings"
+XTERM_TMUX_VALUE="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/xterm-tmux/"
+
+STATUS=$(gsettings get ${SCHEMA} ${KEY})
+
+echo "Binding custom hotkey..."
+echo "This will unbind your default terminal hotkey."
+read -p "Do you want to bind Ctrl+Alt+T hotkey to 'xterm tmux'? (y/n): " -n 1 -r
+echo ""
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "Applying key binding..."
+    if [[ $STATUS == *"'$XTERM_TMUX_VALUE'"* ]]; then
+        echo "Key binding has already been applied. Skipping..."
+    else
+        # Disable built in Ctrl+Alt+T
+        gsettings set org.gnome.settings-daemon.plugins.media-keys terminal '[]'
+        # Apply custom keybinding
+        if [[ $STATUS == *"[]"* ]]; then
+            gsettings set ${SCHEMA} ${KEY} "['$XTERM_TMUX_VALUE']"
+        else
+            gsettings set ${SCHEMA} ${KEY} "${STATUS%]*}, '$XTERM_TMUX_VALUE']"
+        fi
+        gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$XTERM_TMUX_VALUE name 'Terminal Emulator'
+        gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$XTERM_TMUX_VALUE command 'xterm tmux'
+        gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$XTERM_TMUX_VALUE binding '<Primary><Alt>t'
+        echo "Done applying key binding."
+    fi
+else
+    echo "Not applying key binding. You can apply this later by running this script again."
+fi
+
+echo ""

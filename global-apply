@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "[GLOBAL_APPLY] [TERMINAL_PROFILES]"
+read -p "Do you want to apply terminal profiles? (y/n): " -n 1 -r
+echo ""
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    $(git rev-parse --show-toplevel)/terminal/apply
+fi
+
+echo "[GLOBAL_APPLY] [DONE]"

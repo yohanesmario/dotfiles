@@ -1,0 +1,8 @@
+#!/bin/bash
+
+$(git rev-parse --show-toplevel)/terminal/dev-scripts/install-dependencies
+$(git rev-parse --show-toplevel)/terminal/dev-scripts/copy-source-files
+$(git rev-parse --show-toplevel)/terminal/dev-scripts/bind-hotkey
+
+echo "Please restart terminal to apply changes."
+echo "You should run 'tmux kill-server' if you have started tmux."

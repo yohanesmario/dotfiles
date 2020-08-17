@@ -1,4 +1,4 @@
-xterm*faceName: Roboto Mono for Powerline Regular
+xterm*faceName: Roboto Mono Regular
 xterm*faceSize: 12
 xterm*renderFont: true
 xterm*vt100.translations: #override \

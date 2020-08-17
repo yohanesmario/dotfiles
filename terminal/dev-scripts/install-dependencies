@@ -27,6 +27,15 @@ else
     echo "Tmux found."
 fi
 
+echo "Checking xclip dependency..."
+if [[ $(apt list --installed 2>&1 | grep xclip) == *"xclip"* ]]; then
+    echo "xclip found."
+else
+    echo "xclip not found. Installing xclip..."
+    sudo apt install xclip
+    echo "Done installing xclip."
+fi
+
 echo "Checking Roboto font dependency..."
 if [[ $(apt list --installed 2>&1 | grep fonts-roboto) == *"fonts-roboto"* ]]; then
     echo "Roboto found."

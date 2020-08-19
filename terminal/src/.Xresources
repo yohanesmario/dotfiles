@@ -1,5 +1,5 @@
 xterm*faceName: Roboto Mono Regular
-xterm*faceSize: 12
+xterm*faceSize: 10
 xterm*renderFont: true
 xterm*vt100.translations: #override \
     Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\

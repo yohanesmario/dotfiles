@@ -1,17 +1,14 @@
 # Terminal
 
 ## Dependencies
-I'm using xterm and tmux because they support dotfiles and can be easily replicated across devices. For ubuntu, they are available in the ubuntu repository.
-```sh
-sudo apt install xterm x11-xserver-utils tmux
-```
+I'm using xterm and tmux because they support dotfiles and can be easily replicated across devices.
+- XTerm >= 353
+- Tmux >= 3.2
 
 The font being used is  `Roboto Mono Regular` font.
 
-The `apply` script should have handled this for you.
-
 ## Custom Key Binding
-You can setup custom keybinding for `Ctrl+Alt+T` to `xterm tmux`. The `apply` script will ask you if you want to apply this. Here's the steps if you want to apply it on your own.
+You can setup custom keybinding for `Ctrl+Alt+T` to `xterm tmux`.
 
 To get existing custom key bindings, run this on your terminal:
 ```sh
